@@ -94,7 +94,7 @@ export const Footer: React.FC = () => {
                 </a>
               </li>
               <li><i className="fas fa-envelope"></i> info@sksglobalassociates.com</li>
-              <li><i className="fas fa-map-marker-alt"></i> Dallas-TX, USA – Dubai, UAE – Karachi, Pakistan.</li>
+              <li><i className="fas fa-map-marker-alt"></i> USA – Dubai, UAE – Karachi, Pakistan.</li>
             </ul>
           </div>
         </div>
