@@ -4,10 +4,12 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useQuoteModal } from '@/context/QuoteModalContext';
 import { useRouter } from 'next/navigation';
+import { FormLoadingOverlay } from '@/components/FormLoadingOverlay';
 
 export default function HomePage() {
   const router = useRouter();
   const { openModal } = useQuoteModal();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [heroForm, setHeroForm] = useState({
     name: '',
     phone: '',
@@ -24,6 +26,7 @@ export default function HomePage() {
 
   const handleHeroSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
         method: 'POST',
@@ -33,11 +36,12 @@ export default function HomePage() {
         },
         body: JSON.stringify({
           _subject: 'Hero Quick Inquiry - SKS Global',
+          _captcha: 'false',
+          _template: 'basic',
           Name: heroForm.name,
           Phone: heroForm.phone,
           Email: heroForm.email,
           Message: heroForm.message,
-          _template: 'table',
         }),
       });
     } catch (err) {
@@ -49,6 +53,7 @@ export default function HomePage() {
 
   const handleHomeContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
         method: 'POST',
@@ -58,11 +63,12 @@ export default function HomePage() {
         },
         body: JSON.stringify({
           _subject: 'Homepage Get In Touch Inquiry - SKS Global',
+          _captcha: 'false',
+          _template: 'basic',
           Name: homeContact.name,
           Phone: homeContact.phone,
           Email: homeContact.email,
           Message: homeContact.message,
-          _template: 'table',
         }),
       });
     } catch (err) {
@@ -481,6 +487,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <FormLoadingOverlay isLoading={isSubmitting} />
     </>
   );
 }

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { FormLoadingOverlay } from '@/components/FormLoadingOverlay';
 
 export default function ContactPage() {
   const router = useRouter();
@@ -33,11 +34,12 @@ export default function ContactPage() {
         },
         body: JSON.stringify({
           _subject: 'Contact Us Page Inquiry - SKS Global',
+          _captcha: 'false',
+          _template: 'basic',
           Name: formState.name,
           Phone: formState.phone,
           Email: formState.email,
           Message: formState.message,
-          _template: 'table',
         }),
       });
     } catch (err) {
@@ -269,6 +271,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+      <FormLoadingOverlay isLoading={submitting} />
     </>
   );
 }

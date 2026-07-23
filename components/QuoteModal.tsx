@@ -3,10 +3,12 @@
 import React, { useState } from 'react';
 import { useQuoteModal } from '@/context/QuoteModalContext';
 import { useRouter } from 'next/navigation';
+import { FormLoadingOverlay } from '@/components/FormLoadingOverlay';
 
 export const QuoteModal: React.FC = () => {
   const router = useRouter();
   const { isOpen, productName, closeModal } = useQuoteModal();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -16,6 +18,7 @@ export const QuoteModal: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
     try {
       await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
         method: 'POST',
@@ -25,12 +28,13 @@ export const QuoteModal: React.FC = () => {
         },
         body: JSON.stringify({
           _subject: `Quote Inquiry for ${productName || 'General Product'} - SKS Global`,
+          _captcha: 'false',
+          _template: 'basic',
           Name: name,
           Email: email,
           Phone: phone,
           Product: productName || 'General Product Quote',
           Message: details,
-          _template: 'table',
         }),
       });
     } catch (err) {
@@ -113,6 +117,7 @@ export const QuoteModal: React.FC = () => {
           </form>
         </div>
       </div>
+      <FormLoadingOverlay isLoading={isSubmitting} />
     </div>
   );
 };

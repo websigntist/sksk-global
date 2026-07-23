@@ -2025,5 +2025,122 @@ textarea.form-control {
   }
 }
 
+/* ==========================================================================
+   FORM SUBMISSION OVERLAY LOADING STYLES
+   ========================================================================== */
+.form-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99999;
+  background: rgba(11, 15, 25, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+
+.form-loading-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 2.5rem 2.25rem;
+  max-width: 420px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(227, 27, 35, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-top: 4px solid var(--primary-red);
+  transform: scale(0.95);
+  animation: cardPopIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.form-spinner-wrap {
+  position: relative;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 1.25rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-spinner-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(227, 27, 35, 0.15);
+  border-top-color: var(--primary-red);
+  border-right-color: var(--primary-red);
+  animation: spinRing 0.8s linear infinite;
+}
+
+.form-spinner-icon {
+  font-size: 1.6rem;
+  color: var(--primary-red);
+  animation: pulseIcon 1.5s ease-in-out infinite alternate;
+}
+
+.form-loading-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0F172A;
+  margin-bottom: 0.4rem;
+}
+
+.form-loading-desc {
+  font-size: 0.88rem;
+  color: #64748B;
+  font-weight: 500;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.form-loading-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: #F1F5F9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.form-loading-progress-fill {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #E31B23, #FF4D4D);
+  animation: progressFill 1.2s ease-in-out infinite;
+  transform-origin: left;
+}
+
+@keyframes overlayFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes cardPopIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spinRing {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulseIcon {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes progressFill {
+  0% { transform: scaleX(0); }
+  50% { transform: scaleX(0.7); }
+  100% { transform: scaleX(1); }
+}
+
+
 
 
