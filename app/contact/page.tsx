@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function ContactPage() {
+  const router = useRouter();
   const [activeMap, setActiveMap] = useState<'dallas' | 'dubai' | 'karachi'>('dallas');
   const [formState, setFormState] = useState({
     name: '',
@@ -14,7 +16,7 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{ msg: string; type: 'success' | 'error' } | null>(null);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formState.name || !formState.phone || !formState.email || !formState.message) {
       setFeedback({ msg: 'Please fill out all required fields.', type: 'error' });
@@ -22,14 +24,28 @@ export default function ContactPage() {
     }
 
     setSubmitting(true);
-    setTimeout(() => {
-      setFeedback({
-        msg: 'Thank you for contacting SKS Global Associates! Our team will get back to you shortly.',
-        type: 'success',
+    try {
+      await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: 'Contact Us Page Inquiry - SKS Global',
+          Name: formState.name,
+          Phone: formState.phone,
+          Email: formState.email,
+          Message: formState.message,
+          _template: 'table',
+        }),
       });
-      setFormState({ name: '', phone: '', email: '', message: '' });
-      setSubmitting(false);
-    }, 1000);
+    } catch (err) {
+      console.error(err);
+    }
+    setFormState({ name: '', phone: '', email: '', message: '' });
+    setSubmitting(false);
+    router.push('/thank-you');
   };
 
   return (
@@ -184,47 +200,47 @@ export default function ContactPage() {
             )}
 
             <form onSubmit={handleContactSubmit}>
-              <div className="form-group">
-                <label htmlFor="formName">Full Name</label>
+              <div className="hero-input-wrap">
+                <i className="far fa-user input-icon"></i>
                 <input
                   type="text"
                   id="formName"
-                  className="form-control"
-                  placeholder="Enter your full name"
+                  className="form-control hero-input"
+                  placeholder="Full Name"
                   required
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="formPhone">Phone Number</label>
+              <div className="hero-input-wrap">
+                <i className="fab fa-whatsapp input-icon"></i>
                 <input
                   type="tel"
                   id="formPhone"
-                  className="form-control"
-                  placeholder="Enter your contact phone number"
+                  className="form-control hero-input"
+                  placeholder="Phone / WhatsApp Number"
                   required
                   value={formState.phone}
                   onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="formEmail">Email Address</label>
+              <div className="hero-input-wrap">
+                <i className="far fa-envelope input-icon"></i>
                 <input
                   type="email"
                   id="formEmail"
-                  className="form-control"
-                  placeholder="Enter your email address"
+                  className="form-control hero-input"
+                  placeholder="Business Email Address"
                   required
                   value={formState.email}
                   onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                 />
               </div>
-              <div className="form-group">
-                <label htmlFor="formMessage">Message</label>
+              <div className="hero-input-wrap textarea-wrap">
+                <i className="far fa-comment-alt input-icon"></i>
                 <textarea
                   id="formMessage"
-                  className="form-control"
+                  className="form-control hero-input"
                   placeholder="Write your inquiry or commodity requirements..."
                   required
                   value={formState.message}
@@ -233,9 +249,8 @@ export default function ContactPage() {
               </div>
               <button
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-hero-submit"
                 disabled={submitting}
-                style={{ width: '100%', fontSize: '0.95rem', padding: '0.9rem' }}
               >
                 {submitting ? (
                   <>
@@ -243,10 +258,13 @@ export default function ContactPage() {
                   </>
                 ) : (
                   <>
-                    SUBMIT YOUR QUERY <i className="fas fa-paper-plane"></i>
+                    <span>SUBMIT INQUIRY</span> <i className="fas fa-paper-plane"></i>
                   </>
                 )}
               </button>
+              <div className="hero-form-trust">
+                <i className="fas fa-shield-alt"></i> <span>24h Fast Response &bull; 100% Confidential</span>
+              </div>
             </form>
           </div>
         </div>

@@ -2,8 +2,10 @@
 
 import React, { useState } from 'react';
 import { useQuoteModal } from '@/context/QuoteModalContext';
+import { useRouter } from 'next/navigation';
 
 export const QuoteModal: React.FC = () => {
+  const router = useRouter();
   const { isOpen, productName, closeModal } = useQuoteModal();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -12,14 +14,34 @@ export const QuoteModal: React.FC = () => {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(`Inquiry submitted for ${productName || 'product'}! We will contact you soon.`);
+    try {
+      await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `Quote Inquiry for ${productName || 'General Product'} - SKS Global`,
+          Name: name,
+          Email: email,
+          Phone: phone,
+          Product: productName || 'General Product Quote',
+          Message: details,
+          _template: 'table',
+        }),
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setName('');
     setEmail('');
     setPhone('');
     setDetails('');
     closeModal();
+    router.push('/thank-you');
   };
 
   return (
@@ -38,52 +60,56 @@ export const QuoteModal: React.FC = () => {
         <div className="modal-body">
           <form onSubmit={handleSubmit}>
             <input type="hidden" value={productName} />
-            <div className="form-group">
-              <label>Your Name</label>
+            <div className="hero-input-wrap">
+              <i className="far fa-user input-icon"></i>
               <input
                 type="text"
-                className="form-control"
+                className="form-control hero-input"
                 required
-                placeholder="John Doe"
+                placeholder="Your Full Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <label>Business Email</label>
+            <div className="hero-input-wrap">
+              <i className="far fa-envelope input-icon"></i>
               <input
                 type="email"
-                className="form-control"
+                className="form-control hero-input"
                 required
-                placeholder="john@company.com"
+                placeholder="Business Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <label>Phone Number</label>
+            <div className="hero-input-wrap">
+              <i className="fab fa-whatsapp input-icon"></i>
               <input
                 type="tel"
-                className="form-control"
+                className="form-control hero-input"
                 required
-                placeholder="+1 234 567 890"
+                placeholder="Phone / WhatsApp Number"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <label>Required Quantity & Details</label>
+            <div className="hero-input-wrap textarea-wrap">
+              <i className="far fa-comment-alt input-icon"></i>
               <textarea
-                className="form-control"
+                className="form-control hero-input"
                 required
                 placeholder="Specify target quantity (MT), specs, and destination port..."
                 value={details}
                 onChange={(e) => setDetails(e.target.value)}
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-              Submit Inquiry <i className="fas fa-paper-plane"></i>
+            <button type="submit" className="btn btn-hero-submit">
+              <span>REQUEST FREE QUOTE</span>
+              <i className="fas fa-paper-plane"></i>
             </button>
+            <div className="hero-form-trust">
+              <i className="fas fa-shield-alt"></i> <span>24h Fast Response &bull; 100% Confidential</span>
+            </div>
           </form>
         </div>
       </div>

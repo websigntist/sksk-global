@@ -3,8 +3,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useQuoteModal } from '@/context/QuoteModalContext';
+import { useRouter } from 'next/navigation';
 
 export default function HomePage() {
+  const router = useRouter();
   const { openModal } = useQuoteModal();
   const [heroForm, setHeroForm] = useState({
     name: '',
@@ -20,16 +22,54 @@ export default function HomePage() {
     message: '',
   });
 
-  const handleHeroSubmit = (e: React.FormEvent) => {
+  const handleHeroSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you! Your quick inquiry has been submitted. Our sales team will get back to you shortly.');
+    try {
+      await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: 'Hero Quick Inquiry - SKS Global',
+          Name: heroForm.name,
+          Phone: heroForm.phone,
+          Email: heroForm.email,
+          Message: heroForm.message,
+          _template: 'table',
+        }),
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setHeroForm({ name: '', phone: '', email: '', message: '' });
+    router.push('/thank-you');
   };
 
-  const handleHomeContactSubmit = (e: React.FormEvent) => {
+  const handleHomeContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for reaching out to SKS Global Associates! We have received your request.');
+    try {
+      await fetch('https://formsubmit.co/ajax/info@sksglobalassociates.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: 'Homepage Get In Touch Inquiry - SKS Global',
+          Name: homeContact.name,
+          Phone: homeContact.phone,
+          Email: homeContact.email,
+          Message: homeContact.message,
+          _template: 'table',
+        }),
+      });
+    } catch (err) {
+      console.error(err);
+    }
     setHomeContact({ name: '', phone: '', email: '', message: '' });
+    router.push('/thank-you');
   };
 
   const previewProducts = [
@@ -370,48 +410,55 @@ export default function HomePage() {
             <div className="contact-form-wrapper reveal">
               <h3 style={{ fontSize: '1.75rem', color: 'var(--dark-bg)', marginBottom: '1.5rem' }}>Get In Touch!</h3>
               <form onSubmit={handleHomeContactSubmit}>
-                <div className="form-group">
+                <div className="hero-input-wrap">
+                  <i className="far fa-user input-icon"></i>
                   <input
                     type="text"
-                    className="form-control"
-                    placeholder="Your Name"
+                    className="form-control hero-input"
+                    placeholder="Your Full Name"
                     required
                     value={homeContact.name}
                     onChange={(e) => setHomeContact({ ...homeContact, name: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
+                <div className="hero-input-wrap">
+                  <i className="fab fa-whatsapp input-icon"></i>
                   <input
                     type="tel"
-                    className="form-control"
-                    placeholder="Phone Number"
+                    className="form-control hero-input"
+                    placeholder="Phone / WhatsApp Number"
                     required
                     value={homeContact.phone}
                     onChange={(e) => setHomeContact({ ...homeContact, phone: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
+                <div className="hero-input-wrap">
+                  <i className="far fa-envelope input-icon"></i>
                   <input
                     type="email"
-                    className="form-control"
-                    placeholder="Email Address"
+                    className="form-control hero-input"
+                    placeholder="Business Email Address"
                     required
                     value={homeContact.email}
                     onChange={(e) => setHomeContact({ ...homeContact, email: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
+                <div className="hero-input-wrap textarea-wrap">
+                  <i className="far fa-comment-alt input-icon"></i>
                   <textarea
-                    className="form-control"
+                    className="form-control hero-input"
                     placeholder="Write Your Message Here..."
                     required
                     value={homeContact.message}
                     onChange={(e) => setHomeContact({ ...homeContact, message: e.target.value })}
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                  Send Request <i className="fas fa-paper-plane"></i>
+                <button type="submit" className="btn btn-hero-submit">
+                  <span>SEND MESSAGE</span> <i className="fas fa-paper-plane"></i>
                 </button>
+                <div className="hero-form-trust">
+                  <i className="fas fa-shield-alt"></i> <span>24h Fast Response &bull; 100% Confidential</span>
+                </div>
               </form>
             </div>
 
