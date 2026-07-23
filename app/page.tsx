@@ -121,52 +121,63 @@ export default function HomePage() {
             {/* Right Side Compact Stylish Hero Form */}
             <div className="hero-form-card reveal">
               <div className="hero-form-header">
+                <div className="hero-form-tag">
+                  <i className="fas fa-bolt"></i> Instant Quote
+                </div>
                 <h3>Quick Inquiry</h3>
                 <p>Get an instant chemical & commodity quote</p>
               </div>
               <form onSubmit={handleHeroSubmit}>
-                <div className="form-group">
+                <div className="hero-input-wrap">
+                  <i className="far fa-user input-icon"></i>
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control hero-input"
                     placeholder="Full Name"
                     required
                     value={heroForm.name}
                     onChange={(e) => setHeroForm({ ...heroForm, name: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
+                <div className="hero-input-wrap">
+                  <i className="fab fa-whatsapp input-icon"></i>
                   <input
                     type="tel"
-                    className="form-control"
-                    placeholder="Phone Number"
+                    className="form-control hero-input"
+                    placeholder="Phone / WhatsApp Number"
                     required
                     value={heroForm.phone}
                     onChange={(e) => setHeroForm({ ...heroForm, phone: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
+                <div className="hero-input-wrap">
+                  <i className="far fa-envelope input-icon"></i>
                   <input
                     type="email"
-                    className="form-control"
+                    className="form-control hero-input"
                     placeholder="Business Email"
                     required
                     value={heroForm.email}
                     onChange={(e) => setHeroForm({ ...heroForm, email: e.target.value })}
                   />
                 </div>
-                <div className="form-group">
+                <div className="hero-input-wrap textarea-wrap">
+                  <i className="far fa-comment-alt input-icon"></i>
                   <textarea
-                    className="form-control"
+                    className="form-control hero-input"
                     placeholder="Message or Product Specs..."
                     required
                     value={heroForm.message}
                     onChange={(e) => setHeroForm({ ...heroForm, message: e.target.value })}
                   ></textarea>
                 </div>
-                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
-                  Submit Query <i className="fas fa-paper-plane"></i>
+                <button type="submit" className="btn btn-hero-submit">
+                  <span>REQUEST FREE QUOTE</span>
+                  <i className="fas fa-paper-plane"></i>
                 </button>
+                <div className="hero-form-trust">
+                  <i className="fas fa-shield-alt"></i> <span>24h Fast Response &bull; 100% Confidential</span>
+                </div>
               </form>
             </div>
           </div>
