@@ -89,7 +89,7 @@ export const Footer: React.FC = () => {
                 <li><Link href="/products"><i className="fas fa-angle-right"></i> Sulphur</Link></li>
                 <li><Link href="/products"><i className="fas fa-angle-right"></i> Lake Salt</Link></li>
                 <li><Link href="/products"><i className="fas fa-angle-right"></i> Sulphuric Acid</Link></li>
-                <li><Link href="/products"><i className="fas fa-angle-right"></i> Cement / Clinker</Link></li>
+                <li><Link href="/products"><i className="fas fa-angle-right"></i> Rock Phosphate</Link></li>
                 <li><Link href="/products"><i className="fas fa-angle-right"></i> Himalayan Rock Salt</Link></li>
               </ul>
             </div>
