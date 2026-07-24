@@ -110,7 +110,7 @@ export default function HomePage() {
       desc: 'Grey Portland cement clinker for high grade concrete manufacturing and construction.',
     },
     {
-      name: 'Ordinary Portland Cement Type 1 & 2',
+      name: 'Ordinary Portland Cement Type 1, 2 and Alkali',
       category: 'Cement & Building',
       img: '/images/cement1.webp',
       desc: 'Standardized heavy construction Portland cement conforming strictly to ASTM C150 standards.',
