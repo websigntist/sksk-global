@@ -83,7 +83,7 @@ export default function ContactPage() {
               </div>
               <h3>Our Address</h3>
               <p>
-                Dallas-TX, USA,<br />
+                Dallas-Tx, USA,<br />
                 Dubai, UAE and<br />
                 Karachi, Pakistan.
               </p>
