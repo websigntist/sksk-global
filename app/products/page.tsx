@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useQuoteModal } from '@/context/QuoteModalContext';
+import ProductImageSlider from '@/components/ProductImageSlider';
 
 export default function ProductsPage() {
   const { openModal } = useQuoteModal();
@@ -36,6 +37,12 @@ export default function ProductsPage() {
       category: 'salt',
       tag: 'Salt Commodity',
       img: '/images/salt.webp',
+      images: [
+        '/images/salt.webp',
+        '/images/salt-2.webp',
+        '/images/salt-3.webp',
+        '/images/salt-4.webp',
+      ],
       desc: '100% natural pink rock salt directly mined from Khewra mineral deposits for export globally.',
     },
     {
@@ -147,8 +154,12 @@ export default function ProductsPage() {
             {filteredProducts.map((product, idx) => (
               <div key={idx} className="product-card">
                 <div className="product-img-box">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={product.img} alt={product.name} />
+                  {product.images && product.images.length > 1 ? (
+                    <ProductImageSlider images={product.images} alt={product.name} interval={3000} />
+                  ) : (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={product.img} alt={product.name} />
+                  )}
                   <span className="product-tag">{product.tag}</span>
                 </div>
                 <div className="product-info">

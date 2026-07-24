@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useQuoteModal } from '@/context/QuoteModalContext';
 import { useRouter } from 'next/navigation';
 import { FormLoadingOverlay } from '@/components/FormLoadingOverlay';
+import ProductImageSlider from '@/components/ProductImageSlider';
 
 export default function HomePage() {
   const router = useRouter();
@@ -101,6 +102,12 @@ export default function HomePage() {
       name: 'Himalayan Rock Salt',
       category: 'Salt Commodity',
       img: '/images/salt.webp',
+      images: [
+        '/images/salt.webp',
+        '/images/salt-2.webp',
+        '/images/salt-3.webp',
+        '/images/salt-4.webp',
+      ],
       desc: '100% natural pink rock salt directly mined from Khewra mineral deposits for global export.',
     },
     {
@@ -276,8 +283,12 @@ export default function HomePage() {
             {previewProducts.map((p, idx) => (
               <div key={idx} className="product-card">
                 <div className="product-img-box">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={p.img} alt={p.name} />
+                  {p.images && p.images.length > 1 ? (
+                    <ProductImageSlider images={p.images} alt={p.name} interval={3000} />
+                  ) : (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img src={p.img} alt={p.name} />
+                  )}
                   <span className="product-tag">{p.category}</span>
                 </div>
                 <div className="product-info">

@@ -1327,6 +1327,99 @@ img {
   padding:        0.3rem 0.8rem;
   border-radius:  var(--radius-full);
   text-transform: uppercase;
+  z-index:        10;
+}
+
+/* Product Image Slider Styles */
+.product-slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.product-slider-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out, transform 0.5s ease;
+}
+
+.product-slider-img.active {
+  opacity: 1;
+}
+
+.product-card:hover .product-slider-img.active {
+  transform: scale(1.08);
+}
+
+.product-slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  padding: 4px 8px;
+  border-radius: 12px;
+}
+
+.product-slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-slider-dot.active {
+  background: var(--primary-red);
+  width: 18px;
+  border-radius: 4px;
+}
+
+.product-slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  background: rgba(15, 23, 42, 0.6);
+  color: #ffffff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+  font-size: 0.75rem;
+}
+
+.product-card:hover .product-slider-arrow {
+  opacity: 1;
+}
+
+.product-slider-arrow:hover {
+  background: var(--primary-red);
+}
+
+.product-slider-arrow.prev {
+  left: 8px;
+}
+
+.product-slider-arrow.next {
+  right: 8px;
 }
 
 .product-info {
@@ -1997,18 +2090,20 @@ textarea.form-control {
    1. PROFESSIONAL IMAGE COLOR CHANGE HOVER EFFECT
    ========================================================================== */
 .product-img-box img,
+.product-slider-img,
 .shipping-card-img img,
 .value-img-box img,
 .about-collage img {
-  filter: brightness(0.96) saturate(0.95);
+  filter: brightness(1.05) saturate(1.1);
   transition: filter 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover .product-img-box img,
+.product-card:hover .product-slider-img.active,
 .shipping-card:hover .shipping-card-img img,
 .detailed-value-item:hover .value-img-box img,
 .about-collage:hover img {
-  filter: brightness(1.08) saturate(1.2) contrast(1.05);
+  filter: brightness(1.08) saturate(1.15) contrast(1.02);
   transform: scale(1.06);
 }
 
