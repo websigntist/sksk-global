@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
             </div>
             <div className="top-bar-item top-bar-address">
               <i className="fas fa-map-marker-alt"></i>
-              <span>Dallas-TX, USA – Dubai, UAE – Karachi, Pakistan.</span>
+              <span>Dallas-Tx, USA – Dubai, UAE – Karachi, Pakistan.</span>
             </div>
           </div>
           <div className="top-bar-socials">

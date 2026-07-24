@@ -53,7 +53,7 @@ export default function ProductsPage() {
       desc: 'Grey Portland cement clinker for high grade concrete manufacturing and construction supply.',
     },
     {
-      name: 'Ordinary Portland Cement Type 1, 2 and Alkali',
+      name: 'Ordinary Portland Cement  Type l/ll LowAlkali',
       category: 'cement',
       tag: 'Cement & Building',
       img: '/images/cement1.webp',

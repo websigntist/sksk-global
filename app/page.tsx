@@ -117,7 +117,7 @@ export default function HomePage() {
       desc: 'Grey Portland cement clinker for high grade concrete manufacturing and construction.',
     },
     {
-      name: 'Ordinary Portland Cement Type 1, 2 and Alkali',
+      name: 'Ordinary Portland Cement  Type l/ll LowAlkali',
       category: 'Cement & Building',
       img: '/images/cement1.webp',
       desc: 'Standardized heavy construction Portland cement conforming strictly to ASTM C150 standards.',
@@ -136,7 +136,7 @@ export default function HomePage() {
                 <i className="fas fa-globe"></i> Welcome To SKS Global Associates
               </div>
               <h1 className="hero-title">
-                Importer, Exporter and <span>Manufacture&apos;s</span> Representative of <span>Chemicals</span> and Commodity
+                Importer, Exporter and <span>Manufacturers</span> Representative of <span>Chemicals</span> and Commodity
               </h1>
               <p className="hero-subtitle">
                 YOUR COMPLETE SOURCING SOLUTION
