@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
               <i className="fas fa-envelope"></i>
               <a href="mailto:info@sksglobalassociates.com">info@sksglobalassociates.com</a>
             </div>
-            <div className="top-bar-item">
+            <div className="top-bar-item top-bar-address">
               <i className="fas fa-map-marker-alt"></i>
               <span>Dallas-TX, USA – Dubai, UAE – Karachi, Pakistan.</span>
             </div>

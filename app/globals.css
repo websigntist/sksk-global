@@ -1644,28 +1644,194 @@ textarea.form-control {
   }
 }
 
+/* Desktop defaults for footer accordions */
+@media (min-width: 769px) {
+  .footer-accordion-header {
+    cursor: default !important;
+    pointer-events: none !important;
+  }
+  .accordion-arrow {
+    display: none !important;
+  }
+  .footer-accordion-content {
+    display: block !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
 @media (max-width: 768px) {
+  /* Top Bar & Header Mobile Rules */
+  .top-bar-address,
+  .top-bar .top-bar-socials {
+    display: none !important;
+  }
+
+  .footer-about .top-bar-socials {
+    display: flex !important;
+  }
+
+  .top-bar-info {
+    width: 100%;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-cta .btn-primary {
+    display: none !important;
+  }
+
+  /* Hide Right-Side Floating Quote Button & Left-Side Floating Social Bar */
+  .floating-quote-btn,
+  .floating-social-bar {
+    display: none !important;
+  }
+
+  /* Hero Buttons Single Row on Mobile */
+  .hero-btns {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+    justify-content: flex-start !important;
+  }
+
+  .hero-btns .btn {
+    flex: 1 1 0 !important;
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* Hero Stats Single Row on Mobile */
+  .hero-stats-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.35rem !important;
+    margin-top: 1.5rem !important;
+  }
+
+  .hero-stat-card {
+    padding: 0.6rem 0.2rem !important;
+    text-align: center !important;
+    border-radius: var(--radius-sm) !important;
+    min-width: 0 !important;
+  }
+
+  .hero-stat-number {
+    font-size: 1.15rem !important;
+    line-height: 1 !important;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem !important;
+    line-height: 1.15 !important;
+    margin-top: 0.25rem !important;
+    white-space: normal !important;
+  }
+
+  /* Fix Footer Callout Bar Text Clipping on Mobile */
+  .callout-bar-wrapper {
+    padding: 2.5rem 0.75rem 1rem 0.75rem !important;
+    margin-top: -2.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .callout-bar {
+    border-radius: 16px !important;
+    padding: 1.25rem 1rem !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100% !important;
+    gap: 1.25rem !important;
+  }
+
+  .callout-item {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.85rem !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .callout-text {
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .callout-text p {
+    font-size: 0.85rem !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: normal !important;
+    margin: 0 !important;
+  }
+
+  /* Footer Mobile Accordions */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  .footer-accordion-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    cursor: pointer !important;
+    user-select: none !important;
+    padding-bottom: 0.75rem !important;
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .footer-col.is-open .footer-accordion-header {
+    border-bottom-color: rgba(227, 27, 35, 0.5) !important;
+  }
+
+  .accordion-arrow {
+    display: inline-block !important;
+    font-size: 0.85rem !important;
+    color: var(--primary-red) !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .accordion-arrow.rotated {
+    transform: rotate(180deg) !important;
+  }
+
+  .footer-accordion-content {
+    display: none;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .footer-accordion-content.show {
+    display: block !important;
+    animation: accordionFadeIn 0.3s ease forwards;
+  }
+
+  @keyframes accordionFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* General responsive adjustments */
   .hero-title {
     font-size: 2.25rem;
   }
   
-  .about-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .mission-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .products-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .shipping-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-info-cards {
+  .about-grid, .mission-grid, .products-grid, .shipping-grid, .contact-info-cards {
     grid-template-columns: 1fr;
   }
   
@@ -1690,18 +1856,10 @@ textarea.form-control {
   .top-bar .container {
     justify-content: center;
   }
-  
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 480px) {
   .values-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .hero-stats-grid {
     grid-template-columns: 1fr;
   }
 }
