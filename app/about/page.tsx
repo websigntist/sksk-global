@@ -42,7 +42,7 @@ export default function AboutPage() {
                 Yes you are just at the right place, since you are the best client and we have the best products, all you need is the channel to ridge the global distance at thought speed, we are that channel... Global Associates.
               </p>
               <p>
-                Global Associates is the renowned importers, exporters and manufacture&apos;s representative in Pakistan catering different industries from more than a decade. Global Associates buys and sells product to and from major producers, traders and distributors, the company also has products toll produced on their behalf. Global Associates was started in 1992 as a manufacture&apos;s rep and has evolved into an organization with decades of experience in different products sales and marketing.
+                Global Associates is the renowned importers, exporters and manufacturers representative in Pakistan catering different industries from more than a decade. Global Associates buys and sells product to and from major producers, traders and distributors, the company also has products toll produced on their behalf. Global Associates was started in 1992 as a manufacturers rep and has evolved into an organization with decades of experience in different products sales and marketing.
               </p>
               <p>
                 With an era rich in international market exposure, global sourcing, complete product knowledge, in-depth quality assurance, and perfection @ thought, the management of Global Associates is the A-Z of serving local and international clients.
