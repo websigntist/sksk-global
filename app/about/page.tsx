@@ -30,7 +30,7 @@ export default function AboutPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/aboutimg.webp" alt="Cargo Handling" className="-about-img-sub" />
               <div className="about-experience-badge">
-                <h3>30+</h3>
+                <h3>27+</h3>
                 <p>Years Industry Exposure</p>
               </div>
             </div>
@@ -39,13 +39,12 @@ export default function AboutPage() {
               <div className="section-subtitle">About Us</div>
               <h2 className="section-title">SKS Global Associates</h2>
               <p>
-                Yes you are just at the right place, since you are the best client and we have the best products, all you need is the channel to ridge the global distance at thought speed, we are that channel... Global Associates.
+                27 years in international trade, connecting manufacturers with buyers across Asia, the Middle East and Africa.
+                I founded Global Associates in 1992 as a manufacturer's representative, and over the decades it has grown into a business covering cement, coal, sulphur, chemicals, salt and fertilizers. I represent cement manufacturers, including DG Cement, Attock Cement and Power Cement, in markets across Vietnam, China, Thailand, Saudi Arabia and Turkey. I also work as a sulphur and coal indenter, sourcing sulphur from Turkmenistan and Uzbekistan and coal from South Africa, Indonesia and the USA, then placing these with buyers in Pakistan, India, Bangladesh, China and Africa.
+                Beyond this, I trade chemicals between Pakistan and China, export lake salt and pink salt from Pakistan, and handle fertilizer and rock phosphate exports. I also manufacture Single Super Phosphate, Nitro phosphate and Zinc Liquid.
               </p>
               <p>
-                Global Associates is the renowned importers, exporters and manufacturers representative in Pakistan catering different industries from more than a decade. Global Associates buys and sells product to and from major producers, traders and distributors, the company also has products toll produced on their behalf. Global Associates was started in 1992 as a manufacturers rep and has evolved into an organization with decades of experience in different products sales and marketing.
-              </p>
-              <p>
-                With an era rich in international market exposure, global sourcing, complete product knowledge, in-depth quality assurance, and perfection @ thought, the management of Global Associates is the A-Z of serving local and international clients.
+                Based across Dubai, Dallas and Karachi. Always open to connecting with manufacturers and buyers in these markets.
               </p>
             </div>
           </div>
