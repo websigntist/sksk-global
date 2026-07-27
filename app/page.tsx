@@ -171,7 +171,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Side Compact Stylish Hero Form */}
+            {/* Right Side Compact Stylish Hero Section Form */}
             <div className="hero-form-card reveal">
               <div className="hero-form-header">
                 <div className="hero-form-tag">

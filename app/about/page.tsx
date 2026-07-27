@@ -22,7 +22,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 1: ABOUT STORY */}
+      {/* SECTION 1: ABOUT US STORY */}
       <section className="section-padding" style={{ backgroundColor: '#FFFFFF' }}>
         <div className="container">
           <div className="about-grid">
