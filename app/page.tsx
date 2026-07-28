@@ -153,7 +153,7 @@ export default function HomePage() {
               {/* STATS COUNTER GRID */}
               <div className="hero-stats-grid">
                 <div className="hero-stat-card">
-                  <div className="hero-stat-number">32<span>+</span></div>
+                  <div className="hero-stat-number">27<span>+</span></div>
                   <div className="hero-stat-label">Years Experience</div>
                 </div>
                 <div className="hero-stat-card">
@@ -254,9 +254,10 @@ export default function HomePage() {
               <div className="section-subtitle">About Us</div>
               <h2 className="section-title">SKS Global Associates</h2>
               <p>
-                27 years in international trade, connecting manufacturers with buyers across Asia, the Middle East and Africa.
-                I founded Global Associates in 1992 as a manufacturer's representative, and over the decades it has grown into a business covering cement, coal, sulphur, chemicals, salt and fertilizers. I represent cement manufacturers, including DG Cement, Attock Cement and Power Cement, in markets across Vietnam, China, Thailand, Saudi Arabia and Turkey. I also work as a sulphur and coal indenter, sourcing sulphur from Turkmenistan and Uzbekistan and coal from South Africa, Indonesia and the USA, then placing these with buyers in Pakistan, India, Bangladesh, China and Africa.
-                Beyond this, I trade chemicals between Pakistan and China, export lake salt and pink salt from Pakistan, and handle fertilizer and rock phosphate exports. I also manufacture Single Super Phosphate, Nitro phosphate and Zinc Liquid.
+                27 years in international trade, connecting manufacturers with buyers across Asia, the Middle East and Africa. We founded Global Associates in 1992 as a manufacturer's representative, and over the decades it has grown into a business covering cement, coal, sulphur, chemicals, salt and fertilizers. We represent cement manufacturers, including DG Cement, Attock Cement and Power Cement, in markets across Vietnam, China, Thailand, Saudi Arabia and Turkey. We also work as a sulphur and coal indenter, sourcing sulphur from Turkmenistan and Uzbekistan and coal from South Africa, Indonesia and the USA, then placing these with buyers in Pakistan, India, Bangladesh, China and Africa. Beyond this, we trade chemicals between Pakistan and China, export lake salt and pink salt from Pakistan, and handle fertilizer and rock phosphate exports. We also manufacture Single Super Phosphate, Nitro Phosphate and Zinc Liquid.
+              </p>
+              <p style={{ marginTop: '0.75rem' }}>
+                Based across Dubai, Dallas and Karachi. Always open to connecting with manufacturers and buyers in these markets.
               </p>
               <Link href="/about" className="btn btn-primary" style={{ marginTop: '1rem' }}>
                 Read More <i className="fas fa-arrow-right"></i>
